@@ -402,7 +402,7 @@
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&uart0_pins_active>;
 	pinctrl-1 = <&uart0_pins_sleep>;
-	status = "okay";
+	status = "disabled";
 };
 
 &uart1 {
@@ -682,15 +682,15 @@
 	};
 
 	dmic_pins_a: dmic@0 {
-		allwinner,pins = "PH0", "PH1", "PH2", "PH3", "PH4";
+		allwinner,pins = "PH9", "PH10";
 		allwinner,function = "dmic";
-		allwinner,muxsel = <6>;
+		allwinner,muxsel = <7>;
 		allwinner,drive = <1>;
 		allwinner,pull = <0>;
 	};
 
 	dmic_pins_b: dmic_sleep@0 {
-		allwinner,pins = "PH0", "PH1", "PH2", "PH3", "PH4";
+		allwinner,pins = "PH9", "PH10";
 		allwinner,function = "io_disabled";
 		allwinner,muxsel = <0xf>;
 		allwinner,drive = <1>;
@@ -1013,10 +1013,10 @@
 	rx-chmap	= <0x76543210>;
 	data-vol	= <0xB0>;
 	rxdelaytime	= <0>;
-	/* pinctrl-used; */
-	/* pinctrl-names= "default","sleep"; */
-	/* pinctrl-0	= <&dmic_pins_a>; */
-	/* pinctrl-1	= <&dmic_pins_b>; */
+	pinctrl-used;
+	pinctrl-names= "default","sleep";
+	pinctrl-0	= <&dmic_pins_a>;
+	pinctrl-1	= <&dmic_pins_b>;
 	rx-sync-en;
 	status		= "okay";
 };
